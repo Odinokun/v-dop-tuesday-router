@@ -1,10 +1,7 @@
-import React from 'react';
-
 export const PageOne = () => {
-    return (
-        <div>
-            PageOne
-        </div>
-    );
+  return (
+    <div>
+      <h1>Adidas</h1>
+    </div>
+  );
 };
-

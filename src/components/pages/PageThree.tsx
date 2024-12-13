@@ -1,10 +1,7 @@
-import React from 'react';
-
 export const PageThree = () => {
-    return (
-        <div>
-            PageThree
-        </div>
-    );
+  return (
+    <div>
+      <h1>Nike</h1>
+    </div>
+  );
 };
-
