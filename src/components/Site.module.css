@@ -48,3 +48,8 @@
   color: rgb(6, 117, 57);
   text-decoration: dashed;
 }
+
+img {
+  display: block;
+  width: 300px;
+}

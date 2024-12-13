@@ -1,11 +1,31 @@
 import { Navigate, NavLink, Route, Routes } from 'react-router';
-import { PageOne } from './pages/PageOne';
-import { PageThree } from './pages/PageThree';
-import { PageTwo } from './pages/PageTwo';
+import { Page } from './pages/Page';
 import { Error404 } from './pages/Error404';
 import styles from './Site.module.css';
 // import styled from 'styled-components';
 import { S } from './pages/__styles';
+
+import { dataState } from '../data/dataState';
+
+type LinkType = {
+  id: number;
+  title: string;
+};
+
+const linksArray: LinkType[] = [
+  {
+    id: 0,
+    title: 'Adidas',
+  },
+  {
+    id: 1,
+    title: 'Puma',
+  },
+  {
+    id: 2,
+    title: 'Nike',
+  },
+];
 
 export const Site = () => {
   return (
@@ -18,32 +38,24 @@ export const Site = () => {
         <div className={styles.nav}>
           <nav>
             {/* <NavLink to='/page-1' className={({ isActive }) => isActive ? styles.active : styles.navLink} end >Test</NavLink> */}
-            <S.NavWrapper>
-              <NavLink to='/page-1' end>
-                Adidas
-              </NavLink>
-            </S.NavWrapper>
-
-            <S.NavWrapper>
-              <NavLink to='/page-2' end>
-                Puma
-              </NavLink>
-            </S.NavWrapper>
-
-            <S.NavWrapper>
-              <NavLink to='/page-3' end>
-                Nike
-              </NavLink>
-            </S.NavWrapper>
+            {linksArray.map(link => (
+              <S.NavWrapper key={link.id}>
+                <NavLink to={`/page/${link.id}`} end>
+                  {link.title}
+                </NavLink>
+              </S.NavWrapper>
+            ))}
           </nav>
         </div>
         <div className={styles.content}>
           <Routes>
-            <Route path={'/'} element={<Navigate to={'/page-1'} />} />
+            <Route path={'/'} element={<Navigate to={'/page/1'} />} />
+            {/* <Route path={'/page-1'} element={<PageOne />} /> */}
 
-            <Route path={'/page-1'} element={<PageOne />} />
-            <Route path={'/page-2'} element={<PageTwo />} />
-            <Route path={'/page-3'} element={<PageThree />} />
+            <Route
+              path={'/page/:link'}
+              element={<Page pages={dataState.pages} />}
+            />
 
             <Route path={'/*'} element={<Error404 />} />
           </Routes>
