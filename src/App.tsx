@@ -1,10 +1,9 @@
-import { Site } from './components/Site';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <Site />
+      <h1>App</h1>
     </div>
   );
 }
