@@ -1,4 +1,6 @@
+import { NavLink } from 'react-router';
 import './App.css';
+import { linksState } from './state/links-state';
 
 function App() {
   return (
@@ -9,7 +11,17 @@ function App() {
 
       <aside className='aside'>
         <nav>
-          <ul></ul>
+          <ul>
+            {linksState.map(l => {
+              return (
+                <li>
+                  <NavLink key={l.id} to={l.title} end>
+                    {l.title}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
       </aside>
 
