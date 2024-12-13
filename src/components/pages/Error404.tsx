@@ -1,3 +1,7 @@
 export const Error404 = () => {
-  return <div>Error404</div>;
+  return (
+    <div>
+      <h1>Error404</h1>
+    </div>
+  );
 };
