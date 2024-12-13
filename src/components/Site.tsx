@@ -4,7 +4,8 @@ import { PageThree } from './pages/PageThree';
 import { PageTwo } from './pages/PageTwo';
 import { Error404 } from './pages/Error404';
 import styles from './Site.module.css';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import { S } from './pages/__styles';
 
 export const Site = () => {
   return (
@@ -15,25 +16,25 @@ export const Site = () => {
 
       <div className={styles.body}>
         <div className={styles.nav}>
-          <nav className={NavWrapper}>
+          <nav>
             {/* <NavLink to='/page-1' className={({ isActive }) => isActive ? styles.active : styles.navLink} end >Test</NavLink> */}
-            <NavWrapper>
+            <S.NavWrapper>
               <NavLink to='/page-1' end>
                 Adidas
               </NavLink>
-            </NavWrapper>
+            </S.NavWrapper>
 
-            <NavWrapper>
+            <S.NavWrapper>
               <NavLink to='/page-2' end>
                 Puma
               </NavLink>
-            </NavWrapper>
+            </S.NavWrapper>
 
-            <NavWrapper>
+            <S.NavWrapper>
               <NavLink to='/page-3' end>
                 Nike
               </NavLink>
-            </NavWrapper>
+            </S.NavWrapper>
           </nav>
         </div>
         <div className={styles.content}>
@@ -52,23 +53,24 @@ export const Site = () => {
   );
 };
 
-const NavWrapper = styled.nav`
-  margin-left: 10px;
-  font-size: 20px;
-  padding: 10px;
-  & > a {
-    padding: 5px;
-    text-decoration: none;
-    color: chocolate;
-    transition: all 0.3s;
-  }
+// const NavWrapper = styled.nav`
+//   margin-left: 10px;
+//   font-size: 20px;
+//   padding: 10px;
 
-  & > a.active {
-    color: #067539;
-    text-decoration: dashed;
-  }
+//   & > a {
+//     padding: 5px;
+//     text-decoration: none;
+//     color: chocolate;
+//     transition: all 0.3s;
+//   }
 
-  & > a:hover {
-    color: steelblue;
-  }
-`;
+//   & > a.active {
+//     color: #067539;
+//     text-decoration: dashed;
+//   }
+
+//   & > a:hover {
+//     color: steelblue;
+//   }
+// `;
