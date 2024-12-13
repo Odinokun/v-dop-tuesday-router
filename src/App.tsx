@@ -15,7 +15,7 @@ function App() {
             {linksState.map(l => {
               return (
                 <li>
-                  <NavLink key={l.id} to={l.title} end>
+                  <NavLink key={l.id} to={l.link} end>
                     {l.title}
                   </NavLink>
                 </li>
