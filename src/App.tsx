@@ -1,6 +1,10 @@
-import { NavLink } from 'react-router';
-import './App.css';
+import { Navigate, NavLink, Route, Routes } from 'react-router';
+import { Page } from './pages/Page';
+import { Error404 } from './pages/Error404';
+
 import { linksState } from './state/links-state';
+import './App.css';
+import { pagesState } from './state/pages-state';
 
 function App() {
   return (
@@ -14,8 +18,8 @@ function App() {
           <ul>
             {linksState.map(l => {
               return (
-                <li>
-                  <NavLink key={l.id} to={l.link} end>
+                <li key={l.id}>
+                  <NavLink to={`/page/${l.link}`} end>
                     {l.title}
                   </NavLink>
                 </li>
@@ -25,7 +29,16 @@ function App() {
         </nav>
       </aside>
 
-      <main className='main'>Body</main>
+      <main className='main'>
+        <Routes>
+          <Route path='/' element={<Navigate to={'/page/0'} />} />
+          <Route
+            path='/page/:link'
+            element={<Page pages={pagesState.pages} />}
+          />
+          <Route path='/*' element={<Error404 />} />
+        </Routes>
+      </main>
     </div>
   );
 }

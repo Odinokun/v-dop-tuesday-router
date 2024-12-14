@@ -2,7 +2,7 @@ export type PagesStateType = {
   pages: PageType[];
 };
 
-type PageType = {
+export type PageType = {
   id: string;
   title: string;
   descr: string;
